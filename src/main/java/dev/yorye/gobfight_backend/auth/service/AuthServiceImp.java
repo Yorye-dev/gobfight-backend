@@ -26,7 +26,11 @@ public class AuthServiceImp implements AuthService{
         String hashedPassword = passwordEncoder.encode(request.password());
         UserDto userDto = UserMapper.toUserDto(request,hashedPassword);
 
+        ///  antes de creaer el token verificar si el usuario ya existe o el nickname ya esta en uso o el email esta en uso
+
+
         userDto = userService.createNewUser(userDto);
+
 
         var jwtToken = jwtService.generateToken(userDto);
         var refreshToken = jwtService.generateRefreshToken(userDto);
