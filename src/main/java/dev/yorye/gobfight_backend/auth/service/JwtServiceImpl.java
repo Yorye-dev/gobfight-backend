@@ -66,8 +66,12 @@ public class JwtServiceImpl implements JwtService {
 
     @Override
     public UserDto getUserDtoFromToken(final String token) {
-        // Implementar lógica para extraer información del usuario desde el token
-        return null;
+
+        String nickname = extractNicknameFromToken(token);
+
+        return UserDto.builder()
+                .nickname(nickname)
+                .build();
     }
 
     @Override
@@ -88,8 +92,6 @@ public class JwtServiceImpl implements JwtService {
                 .signWith(getSecretKey())
                 .compact();
     }
-
-
 
     private String extractTokenFromHeader(final String header) {
         // Implementar lógica para extraer el token del header

@@ -1,5 +1,8 @@
 package dev.yorye.gobfight_backend.user.dto;
 
+import lombok.Builder;
+
+@Builder
 public record UserDto(
         Long id,
         String nickname,

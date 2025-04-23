@@ -33,7 +33,10 @@ public class AuthController {
         return ResponseEntity.ok(token);
     }
 
+    //@PostMapping("/reset/password") // No se si es necesario, ya que el usuario puede cambiar su contraseña desde el frontal
+
     //@PostMapping("/logout") Creo que no es necesario porque si se borra el Token desde el forntal la sesion se pierde
 
     //@PostMapping("/refresh/token")
+
 }
